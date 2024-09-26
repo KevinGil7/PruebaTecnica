@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
@@ -47,6 +48,11 @@
             txttotalfinal = new TextBox();
             dgvproductos = new DataGridView();
             salir = new Button();
+            toolTip1 = new ToolTip(components);
+            toolTip3 = new ToolTip(components);
+            toolTip4 = new ToolTip(components);
+            label7 = new Label();
+            toolTip2 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnagregar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnactualizar).BeginInit();
@@ -119,12 +125,13 @@
             // btnagregar
             // 
             btnagregar.Image = Properties.Resources._92844241;
-            btnagregar.Location = new Point(507, 199);
+            btnagregar.Location = new Point(664, 110);
             btnagregar.Name = "btnagregar";
             btnagregar.Size = new Size(72, 56);
             btnagregar.SizeMode = PictureBoxSizeMode.StretchImage;
             btnagregar.TabIndex = 9;
             btnagregar.TabStop = false;
+            toolTip1.SetToolTip(btnagregar, "Agregar al carrito");
             btnagregar.Click += btnagregar_Click;
             // 
             // txtnombre
@@ -158,49 +165,52 @@
             // btnactualizar
             // 
             btnactualizar.Image = Properties.Resources.ac;
-            btnactualizar.Location = new Point(585, 199);
+            btnactualizar.Location = new Point(597, 231);
             btnactualizar.Name = "btnactualizar";
             btnactualizar.Size = new Size(77, 56);
             btnactualizar.SizeMode = PictureBoxSizeMode.StretchImage;
             btnactualizar.TabIndex = 14;
             btnactualizar.TabStop = false;
+            toolTip2.SetToolTip(btnactualizar, "Actualizar Carrito");
             btnactualizar.Click += btnactualizar_Click;
             // 
             // btneliminar
             // 
             btneliminar.Image = Properties.Resources.eli;
-            btneliminar.Location = new Point(677, 199);
+            btneliminar.Location = new Point(711, 231);
             btneliminar.Name = "btneliminar";
-            btneliminar.Size = new Size(98, 56);
+            btneliminar.Size = new Size(77, 56);
             btneliminar.SizeMode = PictureBoxSizeMode.StretchImage;
             btneliminar.TabIndex = 15;
             btneliminar.TabStop = false;
+            toolTip3.SetToolTip(btneliminar, "Eliminar Carrito");
             btneliminar.Click += btneliminar_Click;
             // 
             // btndescargar
             // 
             btndescargar.Image = Properties.Resources.pd;
-            btndescargar.Location = new Point(586, 267);
+            btndescargar.Location = new Point(544, 342);
             btndescargar.Name = "btndescargar";
-            btndescargar.Size = new Size(114, 126);
+            btndescargar.Size = new Size(82, 88);
             btndescargar.SizeMode = PictureBoxSizeMode.StretchImage;
             btndescargar.TabIndex = 16;
             btndescargar.TabStop = false;
+            toolTip4.SetToolTip(btndescargar, "Imprimir pdf");
             btndescargar.Click += btndescargar_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(627, 396);
+            label6.Location = new Point(632, 400);
             label6.Name = "label6";
-            label6.Size = new Size(73, 30);
+            label6.Size = new Size(89, 30);
             label6.TabIndex = 17;
-            label6.Text = "Total: ";
+            label6.Text = "Total: Q";
             // 
             // txttotalfinal
             // 
-            txttotalfinal.Location = new Point(706, 403);
+            txttotalfinal.Location = new Point(718, 407);
             txttotalfinal.Name = "txttotalfinal";
             txttotalfinal.ReadOnly = true;
             txttotalfinal.Size = new Size(100, 23);
@@ -210,15 +220,15 @@
             // 
             dgvproductos.AllowUserToAddRows = false;
             dgvproductos.BackgroundColor = SystemColors.Window;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvproductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new Padding(1);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvproductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvproductos.ColumnHeadersHeight = 30;
             dgvproductos.EnableHeadersVisualStyles = false;
             dgvproductos.Location = new Point(13, 182);
@@ -227,7 +237,7 @@
             dgvproductos.ReadOnly = true;
             dgvproductos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvproductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvproductos.Size = new Size(477, 248);
+            dgvproductos.Size = new Size(525, 248);
             dgvproductos.TabIndex = 86;
             dgvproductos.CellContentClick += dgvproductos_CellContentClick;
             // 
@@ -243,12 +253,23 @@
             salir.UseVisualStyleBackColor = false;
             salir.Click += salir_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label7.Location = new Point(15, 161);
+            label7.Name = "label7";
+            label7.Size = new Size(140, 21);
+            label7.TabIndex = 88;
+            label7.Text = "Detalle del Carrito:";
+            // 
             // Compra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(818, 447);
+            Controls.Add(label7);
             Controls.Add(salir);
             Controls.Add(txttotalfinal);
             Controls.Add(label6);
@@ -299,5 +320,10 @@
         private TextBox txttotalfinal;
         private DataGridView dgvproductos;
         private Button salir;
+        private ToolTip toolTip1;
+        private ToolTip toolTip3;
+        private ToolTip toolTip4;
+        private Label label7;
+        private ToolTip toolTip2;
     }
 }

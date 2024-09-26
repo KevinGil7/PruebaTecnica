@@ -4,6 +4,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System.IO;
 using System.Text;
+using System.Security.Cryptography.X509Certificates;
 namespace PruebaTecnica
 {
     public partial class Compra : Form
@@ -91,6 +92,7 @@ namespace PruebaTecnica
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             SaveFileDialog guardarpdf = new SaveFileDialog();
             guardarpdf.FileName = ("factura.pdf");
+            guardarpdf.Filter = "PDF Files (*.pdf)|*.pdf";
 
             string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "plantilla.html");
 
@@ -215,31 +217,36 @@ namespace PruebaTecnica
                 descripcion = txtdescripcion.Text;
                 precioo = txtprecio.Text;
                 cantidadd = txtcantidad.Text;
+                
                 dgvproductos[0, posicion].Value = txtnombre.Text;
                 dgvproductos[1, posicion].Value = txtdescripcion.Text;
                 dgvproductos[2, posicion].Value = txtprecio.Text;
                 dgvproductos[3, posicion].Value = txtcantidad.Text;
+                dgvproductos[4, posicion].Value = subtotal.ToString();
 
                 // Actualizar el total final
                 ActualizarTotalFinal();
 
                 // Limpiar los TextBox y restaurar el estado de los botones
                 limpiar();
-                //btnagregar.Enabled = true;
-                //btnactualizar.Enabled = false;
+                btnagregar.Enabled = true;
+                btnactualizar.Enabled = false;
             }
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
             dgvproductos.Rows.RemoveAt(posicion);
-            txtnombre.Focus();
+            ActualizarTotalFinal();
             limpiar();
+            txtnombre.Focus();
         }
 
         private void salir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        
     }
 }
